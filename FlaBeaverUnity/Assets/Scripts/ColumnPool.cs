@@ -7,6 +7,7 @@ public class ColumnPool : MonoBehaviour {
     public int columnPoolSize = 1000;
     public float columnYMin = -2f;
     public float columnYMax = 2f;
+    public GameObject spawner;
 
     private float timeSinceLastSpawn;
     private float spawnXPos = 4f;
@@ -15,9 +16,10 @@ public class ColumnPool : MonoBehaviour {
     public GameObject columnPrefab;
 
     private GameObject[] columns;
-    private Vector2 objectPoolPosition = new Vector2(-15, -25f);
+    private Vector2 objectPoolPosition;
 	// Use this for initialization
 	void Start () {
+        objectPoolPosition = new Vector2(20f, -25f);
         columns = new GameObject[columnPoolSize];
         for(int i = 0; i <columnPoolSize; i++)
         {
@@ -33,7 +35,7 @@ public class ColumnPool : MonoBehaviour {
         {
             timeSinceLastSpawn = 0;
             float spawnYPos = Random.Range(columnYMin, columnYMax);
-            columns[currentColumn].transform.position = new Vector2(spawnXPos, spawnYPos);
+            columns[currentColumn].transform.position = new Vector2(-1f, spawnYPos);
 
             currentColumn++;
 
