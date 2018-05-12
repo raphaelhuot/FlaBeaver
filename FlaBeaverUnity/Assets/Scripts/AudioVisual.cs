@@ -10,6 +10,7 @@ public class AudioVisual : MonoBehaviour {
     public float dbValue;
 
     public GameObject visualObject;
+    public Material theMat;
 
     public float maxVisualScale = 25.0f;
     public float visualModifier = 120.0f;
@@ -41,11 +42,13 @@ public class AudioVisual : MonoBehaviour {
         for (int i = 0; i < amountOfVisual; i++)
         {
             GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube) as GameObject;
+            go.GetComponent<Renderer>().material = theMat;
             go.transform.parent = visualObject.transform;
             visualList[i] = go.transform;
-            visualList[i].position = new Vector3(0.1f, 0f, 0f) * i;
+            visualList[i].position = new Vector3(0.75f, 0f, 0f) * i;
         }
 
+        visualObject.transform.position = new Vector3(-8.5f,-2f,0f);
     }
 
 	// Update is called once per frame
@@ -82,7 +85,7 @@ public class AudioVisual : MonoBehaviour {
                 visualScale[visualIndex] = maxVisualScale;
             }
 
-            visualList[visualIndex].localScale = new Vector3(0.1f,0.1f,0.1f) + Vector3.up * visualScale[visualIndex];
+            visualList[visualIndex].localScale = new Vector3(0.75f,0.75f,0.75f) + Vector3.up * visualScale[visualIndex];
             visualIndex++;
         }
     }

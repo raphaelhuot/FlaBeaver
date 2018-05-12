@@ -29,7 +29,7 @@ public class ColumnPool : MonoBehaviour {
 	void Update () {
         timeSinceLastSpawn += Time.deltaTime;
 
-        if(GameControl.Instance.isGameOver && timeSinceLastSpawn >= spawnRate)
+        if(!GameControl.Instance.isGameOver && timeSinceLastSpawn >= spawnRate)
         {
             timeSinceLastSpawn = 0;
             float spawnYPos = Random.Range(columnYMin, columnYMax);
