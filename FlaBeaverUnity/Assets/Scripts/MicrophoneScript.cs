@@ -11,7 +11,7 @@ public class MicrophoneScript : MonoBehaviour {
         myAudio = GetComponent<AudioSource>();
         myAudio.clip = Microphone.Start(null, true, 10, 44100);
         myAudio.loop = true;
-        myAudio.mute = true;
+        myAudio.mute = false;
         while (!(Microphone.GetPosition(null) > 0)) { }
         myAudio.Play();
 	}

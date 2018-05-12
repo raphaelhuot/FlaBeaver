@@ -16,7 +16,7 @@ public class Controller : MonoBehaviour {
     {
         if (mic.loudness > 8)
         {
-            beaverRB.velocity = new Vector2(beaverRB.velocity.x, 4);
+            beaverRB.velocity = new Vector2(beaverRB.velocity.x, 1 + (mic.loudness/4));
         }
     }
 }
