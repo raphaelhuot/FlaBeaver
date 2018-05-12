@@ -14,6 +14,7 @@ public class Controller : MonoBehaviour {
     public Image panelImage;
     public ColumnPool spawner;
     public Bird playerScript;
+    public GameObject gameOver;
 
     private void Start()
     {
@@ -24,8 +25,12 @@ public class Controller : MonoBehaviour {
     {
         if (mic.loudness > 8 && !playerScript.isDead)
         {
-            beaverRB.velocity = new Vector2(beaverRB.velocity.x, 1 + (mic.loudness/4));
+            beaverRB.velocity = new Vector2(beaverRB.velocity.x, 1 + (mic.loudness / 4));
             anim.SetTrigger("Flap");
+        }
+        else
+        {
+            gameOver.SetActive(true);
         }
 
         if (panelImage.isActiveAndEnabled)
