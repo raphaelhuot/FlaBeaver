@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Controller : MonoBehaviour {
 
@@ -10,6 +11,10 @@ public class Controller : MonoBehaviour {
     public GameObject bird;
     private Animator anim;
 
+    public Image panelImage;
+    public ColumnPool spawner;
+    public Bird playerScript;
+
     private void Start()
     {
         beaverRB = beaver.GetComponent<Rigidbody2D>();
@@ -17,10 +22,22 @@ public class Controller : MonoBehaviour {
     }
     private void Update()
     {
-        if (mic.loudness > 8)
+        if (mic.loudness > 8 && !playerScript.isDead)
         {
             beaverRB.velocity = new Vector2(beaverRB.velocity.x, 1 + (mic.loudness/4));
             anim.SetTrigger("Flap");
         }
+
+        if (panelImage.isActiveAndEnabled)
+        {
+            beaver.SetActive(false);
+            spawner.enabled = false;
+        }
+        else
+        {
+            beaver.SetActive(true);
+            spawner.enabled = true;
+        }
+
     }
 }

@@ -9,7 +9,7 @@ public class ColumnPool : MonoBehaviour {
     public float columnYMax = 2f;
 
     private float timeSinceLastSpawn;
-    private float spawnXPos = 10f;
+    private float spawnXPos = 4f;
     private int currentColumn = 0;
 
     public GameObject columnPrefab;
