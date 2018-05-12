@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColumnPool : MonoBehaviour {
     public float spawnRate = 4f;
-    public int columnPoolSize = 5;
+    public int columnPoolSize = 1000;
     public float columnYMin = -2f;
     public float columnYMax = 2f;
 
