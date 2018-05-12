@@ -28,7 +28,8 @@ public class Controller : MonoBehaviour {
             beaverRB.velocity = new Vector2(beaverRB.velocity.x, 1 + (mic.loudness / 4));
             anim.SetTrigger("Flap");
         }
-        else
+        
+        if(playerScript.isDead)
         {
             gameOver.SetActive(true);
         }
