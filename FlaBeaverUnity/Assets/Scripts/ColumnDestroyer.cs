@@ -6,7 +6,7 @@ public class ColumnDestroyer : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "column")
+        if(other.tag == "Column")
         {
             Destroy(other.gameObject);
         }
