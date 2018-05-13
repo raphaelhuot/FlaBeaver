@@ -11,7 +11,7 @@ public class GameTimer : MonoBehaviour {
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("GameTimer"))
+        if (PlayerPrefs.HasKey("GameTimer") && PlayerPrefs.GetFloat("GameTimer") > 0)
         {
             gameTimer = PlayerPrefs.GetFloat("GameTimer");
         }
